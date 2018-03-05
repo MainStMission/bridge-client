@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-var FontAwesome = require('react-fontawesome');
+import FontAwesome from 'react-fontawesome';
+import Button from 'material-ui/Button';
+import Menu, { MenuItem } from 'material-ui/Menu';
+import HouseholdMenu from './SimpleMenu'
 
 class Main extends Component {
     render() {
@@ -8,8 +11,8 @@ class Main extends Component {
           <div id="menu-outer">
             <h1> Main St Mission </h1>
             <div class="menu-table">
-                <ul id="navbar">
-                    <li><FontAwesome name='user-plus' /> <a href= "/"> Households</a></li>
+                 <ul id="navbar">
+                    <li><HouseholdMenu /> </li>
                     <li><a href= "/">Donations</a></li>
                     <li><a href= "/">Volunteers</a></li>
                     <li><a href= "/">Admin</a></li>

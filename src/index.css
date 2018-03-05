@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: roboto,sans-serif;
 }
 
 #menu-outer {
@@ -21,12 +21,19 @@ ul#navbar {
 	  min-width: 696px;
 	  list-style: none;
 	  padding-top: 20px;
+
 }
 ul#navbar li {
 		display: inline;
     margin-right: 40px;
     font-size: 30px;
     text-decoration: none;
+}
+
+ul#navbar button {
+    font-size: 30px;
+    color: blue;
+    text-transform: capitalize;
 }
 li#prof {
     margin-left: 40px;
