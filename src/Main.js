@@ -12,7 +12,7 @@ class Main extends Component {
             <h1> Main St Mission </h1>
             <div class="menu-table">
                  <ul id="navbar">
-                    <li><HouseholdMenu /> </li>
+                    <li><a href= "/">Households</a> </li>
                     <li><a href= "/">Donations</a></li>
                     <li><a href= "/">Volunteers</a></li>
                     <li><a href= "/">Admin</a></li>
