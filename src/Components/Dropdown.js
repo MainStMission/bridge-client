@@ -24,7 +24,7 @@ const Toggle = styled.li`
   cursor: pointer;
   padding: 0px 20px 0px 10px;
   transition: transform 0.3s ease, top 0.3s ease, bottom 0.3s ease;
-  color: ${ props => props.theme.text ? props.theme.text : 'white' };
+  color: ${ props => props.theme.text ? props.theme.text : 'black' };
   line-height: ${ props => props.theme.height ? props.theme.height : '50px' };
 
   @media (max-width: 768px) {

@@ -4,41 +4,7 @@ body {
   font-family: roboto,sans-serif;
 }
 
-#menu-outer {
-	  height: 84px;
-    margin-left: 40px;
-    margin-top: 20px;
-}
-
-.menu-table {
-	  display: table;   /* Allow the centering to work */
-	  margin: 0 auto;
-    margin-top: -88px;
- 
-}
-
-ul#navbar {
-	  min-width: 696px;
-	  list-style: none;
-	  padding-top: 20px;
-
-}
-ul#navbar li {
-		display: inline;
-    margin-right: 40px;
-    font-size: 30px;
-    text-decoration: none;
-}
-
-ul#navbar button {
-    font-size: 30px;
-    color: blue;
-    text-transform: capitalize;
-}
-li#prof {
-    margin-left: 40px;
-}
-
-ul#navbar a {
+#title a {
+    margin-left: 10px;
     text-decoration: none;
 }
