@@ -8,8 +8,9 @@ const Menu = styled.ul`
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
+  font-size: 1.5em;
   height: 100%;
-  padding: 0;
+  padding: 10px;
   position: relative;
   background: ${ props => props.open && props.theme.secondary ? props.theme.secondary : 'transparent' };
   transition: all 0.2s ease;

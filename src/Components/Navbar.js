@@ -16,7 +16,7 @@ const Container = styled.div`
     overflow: hidden;
     position: initial;
     ${''/* height: ${ props => props.open ? 'auto' : '50px' }; */}
-    height: 50px;
+    height: 80px;
     transition: height 0.3s ease;
     -ms-overflow-style: none;
     overflow: -moz-scrollbars-none;
