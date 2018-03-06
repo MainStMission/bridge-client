@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import FontAwesome from 'react-fontawesome';
-import Button from 'material-ui/Button';
-import Menu, { MenuItem } from 'material-ui/Menu';
-import HouseholdMenu from './SimpleMenu'
 
 class Main extends Component {
     render() {
