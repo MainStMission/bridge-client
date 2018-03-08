@@ -1,4 +1,3 @@
-// @flow
 import React, { Component } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 import Brand from './Brand'

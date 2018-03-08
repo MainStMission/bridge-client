@@ -1,15 +1,25 @@
 import React from 'react';
-import Render from 'react-dom';
-import { formik } from 'formik';
+import ReactDOM from 'react-dom';
+import { Formik } from 'formik';
 import Yup from 'yup';
 
 
 const Household = () => (
     <div>
-Households
+        <h1>Households</h1>
+        <Formik
+            initialValues={{
+                household_name:'',
+                name:'',
+                created_at:'',
+                updated_at:'',
+                box_type:''
+                
+            }}
+            />
     </div>
 );
 
-render(<Household />, document.getElementById('root'));
+ReactDOM.render(<Household />, document.getElementById('root'));
 
 export default Household;
