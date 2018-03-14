@@ -131,7 +131,7 @@ export default class Main extends Component {
             <div id="container">
               <div>
                 <div id="title">
-                  <h1><a href="/">Main St Mission</a></h1>
+                  <h1><a href="/">Main Street Mission</a></h1>
                 </div>
                   <Navbar theme={ theme2 }  items={ items } />
                 </div>
