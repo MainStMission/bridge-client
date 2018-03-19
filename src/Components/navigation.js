@@ -1,13 +1,8 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
-import Navbar from './Components/Navbar';
-import Household from "./Components/household";
+import FontAwesome from 'react-fontawesome';
+import Navbar from './Navbar'
 
-import {
-    Route,
-    NavLink,
-    HashRouter,
-} from "react-router-dom";
 
 const items = [
     {
@@ -41,8 +36,8 @@ const items = [
                 href: '/donation'
             },
             {
-              name: 'Donations',
-              href: '/donations'
+                name: 'Donations',
+                href: '/donations'
             },
             {
                 name: 'Doners',
@@ -59,16 +54,16 @@ const items = [
                 href: '/volunteer'
             },
             {
-              name: 'Volunteers',
-              href: '/volunteers'
+                name: 'Volunteers',
+                href: '/volunteers'
             },
             {
                 name: 'Visit Text',
                 href: '/vtext'
             },
             {
-              name: '2nd Harvest',
-              href: '/harvest'
+                name: '2nd Harvest',
+                href: '/harvest'
             },
             {
                 name: 'Admin',
@@ -85,8 +80,8 @@ const items = [
                 href: '/profile'
             },
             {
-              name: 'Sign Out',
-              href: '/out'
+                name: 'Sign Out',
+                href: '/out'
             }
         ]
     }
@@ -113,3 +108,25 @@ const theme2 = {
     secondary: '#05668D',
     text: 'white'
 }
+const theme3 = {
+    primary: 'black',
+    secondary: '#05668D',
+    text: 'white'
+}
+
+export default class Main extends Component {
+    render() {
+        return (
+            <div id="container">
+              <div>
+                <div id="title">
+                  <h1><a href="/">Main Street Mission</a></h1>
+                </div>
+                  <Navbar theme={ theme3 }  items={ items } />
+                </div>
+            </div>
+        )
+    }
+}
+
+ReactDOM.render(<Main />, document.getElementById('root'))
