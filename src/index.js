@@ -9,7 +9,7 @@ ReactDOM.render(
     <div>
       <BrowserRouter>
         <div>
-          <Route path="/" component={Nav} />
+          <Route exact path="/" component={Nav} />
           <Route path="/household" component={Household}/>
         </div>
       </BrowserRouter>

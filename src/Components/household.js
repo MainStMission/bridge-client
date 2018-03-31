@@ -1,82 +1,70 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Formik } from 'formik';
-import Yup from 'yup';
+/*jshint esversion: 6 */
 
-function LoginToMyApp(p){return p * p};
-function transformMyApiErrors(p) {return p*p};
+import React from "react"
+import { withFormik, Form, Field } from "formik"
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
+import Yup from "yup"
 
-const Household = () => (
-    <div>
-        <h1>Households</h1>
-        <Formik
-            initialValues={{
-                household_name:'',
-                name:'',
-                created_at:'',
-                updated_at:'',
-                box_type:'',
-                income1:'',
-                inc_amt1:null,
-                income2: '',
-                inc_amt2: null,
-                income3: '',
-                inc_amt3: null
-            }}
-    validate={values => {
-        let errors = {};
-        if (!values.household_name) {
-            errors.household_name= 'Required';
-        }
-        return errors;
-    }}
-    onSubmit={(
-        values,
-        { setSubmitting, setErrors}
-    ) => {
-        LoginToMyApp(values).then(
-            user=> {
-                setSubmitting(false);
-            },
-            errors => {
-        setSubmitting(false);
-
-    },
-              errors => {
-                  setSubmitting(false);
-                  setErrors(transformMyApiErrors(errors));
-              }
-);
-    }}
-render={({
-    values,
-    errors,
-    touched,
-    handleChange,
-    handleBlur,
-    handleSubmit,
-    isSubmitting,
+const Household = ({
+	values,
+	errors,
+	touched,
+	isSubmitting
 }) => (
-    <form onSubmit={handleSubmit}>
-    <input
-      type="string"
-      name="household_name"
-      onChange={handleChange}
-      onBlur={handleBlur}
-      value={values.household_name}
-    />
-    {touched.household_name && errors.household_name && <div>{errors.household_name}</div>}
-    <input
-        type="string"
-        name="name"
-        onChange={handleChange}
-        onBlur={handleBlur}
-        value={values.household_name}
-    />
-        {touched.name && errors.name && <div>{errors.name}</div>}
-    </form>
-)}
- />
-</div>
-);
-export default Household;
+	<Form>
+		<div>
+			<label>
+				<Field type="string" name="household_name" placeholder="Household Name" />
+          Household Name (Last, First)
+			</label>
+			<p>You must enter at least one Neighbor for the HouseHold</p>
+			<button>New Neighbor</button>
+			<Tabs>
+				<TabList>
+					<Tab>Address</Tab>
+					<Tab>Income</Tab>
+					<Tab>Visits</Tab>
+					<li>Mission</li>
+				</TabList>
+				<TabPanel>
+					<p>Addresses</p>
+				</TabPanel>
+				<TabPanel>
+          Income
+				</TabPanel>
+				<TabPanel>
+          Visits
+				</TabPanel>
+				<TabPanel>
+          Mission
+				</TabPanel>
+			</Tabs>
+		</div>
+		<button>Submit</button>
+	</Form>
+)
+
+
+const FormikApp = withFormik({
+	mapPropsToValues({ household_name}) {
+		return {
+			household_name: household_name 
+		}
+	},
+	validationSchema: Yup.object().shape({
+		household_name: Yup.string().required("Household is required")
+	}),
+
+	handleSubmit(values, { resetForm, setErrors, setSubmitting }){
+		setTimeout(() => {
+			if(values.household_name === 'Brooke') {
+			  setErrors({ email: 'That Name is already taken' })
+			} else {
+			  resetForm()
+			}
+			setSubmitting(false)
+		  }, 2000)
+	}
+})(Household)
+
+export default Household
