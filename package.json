@@ -5,12 +5,16 @@
   "dependencies": {
     "formik": "^0.11.11",
     "jshint": "^2.9.5",
+    "material-ui": "^1.0.0-beta.40",
+    "material-ui-icons": "^1.0.0-beta.36",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-fontawesome": "^1.6.1",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
     "react-tabs": "^2.2.1",
+    "rebass": "^2.0.0-0",
+    "semantic-ui-react": "^0.79.1",
     "styled-components": "^3.2.0",
     "yup": "^0.24.1"
   },
@@ -18,11 +22,19 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
-    "eslint-plugin-react": "^7.7.0"
+    "eslint-plugin-react": "^7.7.0",
+    "@storybook/react": "^3.4.1",
+    "@storybook/addon-actions": "^3.4.1",
+    "@storybook/addon-links": "^3.4.1",
+    "@storybook/addons": "^3.4.1",
+    "babel-core": "^6.26.0",
+    "babel-runtime": "^6.26.0"
   },
   "main": "index.js",
   "repository": "git@github.com:MainStMission/bridge-client.git",
