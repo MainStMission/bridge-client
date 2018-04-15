@@ -20,7 +20,8 @@ const DonationDropdown = () => (
 			<Dropdown.Item text='New Donation' />
 			<Dropdown.Item text='Donations' />
 			<Dropdown.Item text='Donors' />
-			<Dropdown.Item text='Donortools' />
+			<Dropdown.Item> <a class="item" href="https://www.donortools.com/login">Donor Tools</a></Dropdown.Item>
+			<Dropdown.Item> <a class="item" href="https://donorbox.org/org_session/new">Donor Box</a></Dropdown.Item>
 		</Dropdown.Menu>
 	</Dropdown>
 )
