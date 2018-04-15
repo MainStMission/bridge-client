@@ -1,13 +1,51 @@
 /*jshint esversion: 6 */
+// Helper styles for demo
+import '../index.css';
 
-import React from "react"
-import { withFormik, Form, Field, FormikContext } from "formik"
-import styled from "styled-components"
+import React from 'react';
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs"
-import Yup from "yup"
+import { Form, Dropdown, Button} from 'semantic-ui-react';
+import { render } from 'react-dom';
+import { Field, withFormik } from 'formik';
+import Yup from 'yup';
 
 
-const Household = ({ values, errors, touched, isSubmitting }) => (
+const DisplayFormikState = props =>
+  <div style={{ margin: '1rem 0' }}>
+    <h3 style={{ fontFamily: 'monospace' }} />
+    <pre
+      style={{
+        background: '#f6f8fa',
+        fontSize: '.65rem',
+        padding: '.5rem',
+      }}
+    >
+      <strong>props</strong> ={' '}
+      {JSON.stringify(props, null, 2)}
+    </pre>
+  </div>;
+
+// Our inner form component. Will be wrapped with Formik({..})
+const MyInnerForm = props => {
+  const {
+    values,
+    touched,
+    errors,
+    dirty,
+    isSubmitting,
+    handleChange,
+    handleBlur,
+    handleSubmit,
+    handleReset,
+  } = props;
+  const options = [
+    { key: 1, text: 'Yes', value: true },
+    { key: 2, text: 'No', value: false }
+  ]
+
+  return (
+    
+
 	<Form>
 	  	<div>
 			<label>
@@ -22,10 +60,12 @@ const Household = ({ values, errors, touched, isSubmitting }) => (
 			<button>New Neighbor</button>
 			<Tabs>
 				<TabList>
+          <h1 class="list">
 					<Tab>Address</Tab>
 					<Tab>Income</Tab>
 					<Tab>Visits</Tab>
-					<li>Mission</li>
+					<Tab>Mission</Tab>
+          </h1>
 		  		</TabList>
 		  		<TabPanel>
 					<Form>
@@ -235,29 +275,51 @@ const Household = ({ values, errors, touched, isSubmitting }) => (
 	  </div>
 	  <button>Submit</button>
 	</Form>
-)
 
 
-const FormikApp = withFormik({
-	mapPropsToValues({ household_name}) {
-		return {
-			household_name: household_name 
-		}
-	},
-	validationSchema: Yup.object().shape({
-		household_name: Yup.string().required("Household is required")
-	}),
+  );
+};
 
-	handleSubmit(values, { resetForm, setErrors, setSubmitting }){
-		setTimeout(() => {
-			if(values.household_name === "Brooke") {
-			  setErrors({ email: "That Name is already taken" })
-			} else {
-			  resetForm()
-			}
-			setSubmitting(false)
-		  }, 2000)
-	}
-})(Household)
+
+const withSemanticUIFormik = props=> WrappedComponent=>{
+
+  return withFormik(props)(class extends React.Component{
+    handleBlur = (e, data) => {
+      if(data && data.name){
+        this.props.setFieldValue(data.name,data.value);
+        this.props.setFieldTouched(data.name);
+      }
+    }
+    handleChange = (e,data) =>{
+      if (data && data.name) {
+        this.props.setFieldValue(data.name,data.value);
+      }
+    }
+
+    render(){
+      return <WrappedComponent {...this.props}
+        handleBlur={this.handleBlur}
+        handleChange={this.handleChange}
+        />
+    }
+  })
+}
+
+
+const Household = withSemanticUIFormik({
+  mapPropsToValues: () => ({ email: '',agree:false, household_name: '' }),
+  validationSchema: Yup.object().shape({
+    email: Yup.string()
+      .email('Invalid email address')
+      .required('Email is required!'),
+  }),
+  handleSubmit: (values, { setSubmitting }) => {
+    setTimeout(() => {
+      alert(JSON.stringify(values, null, 2));
+      setSubmitting(false);
+    }, 1000);
+  },
+  displayName: 'BasicForm', // helps with React DevTools
+})(MyInnerForm);
 
 export default Household
