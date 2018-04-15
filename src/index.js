@@ -27,8 +27,8 @@ ReactDOM.render(
 
 		<BrowserRouter>
 			<div>
-				<Route path="/household" component={Household}/>
 				<Navigation />
+				<Route path="/household" component={Household}/>
 			</div>
 		</BrowserRouter>
 	</Container>,
