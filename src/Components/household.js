@@ -3,11 +3,11 @@
 import '../index.css';
 
 import React from 'react';
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs"
-import { Form, Dropdown, Button} from 'semantic-ui-react';
-import { render } from 'react-dom';
-import { Field, withFormik } from 'formik';
-import Yup from 'yup';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
+import { Form, Dropdown, Button} from 'semantic-ui-react'
+import { render } from 'react-dom'
+import { Field, withFormik } from 'formik'
+import Yup from 'yup'
 
 
 const DisplayFormikState = props =>
@@ -51,14 +51,14 @@ const MyInnerForm = props => {
 			<label>
 		 		<Field
 					type="string"
-					name="household_name"
+					name="householdName"
 					placeholder="Household Name"
 				/>
 				Household Name (Last, First)
 			</label>
 			<p>You must enter at least one Neighbor for the HouseHold</p>
 			<button>New Neighbor</button>
-			<Tabs>
+			{ <Tabs>
 				<TabList>
           <h1 class="list">
 					<Tab>Address</Tab>
@@ -86,7 +86,7 @@ const MyInnerForm = props => {
 							Zip
 			  			</label>
 			  			<label>
-							<Field component="select" name="proof_of_residency">
+							<Field component="select" name="proofOf_esidency">
 				  				<option value="Drivers License">Drivers License</option>
 				  				<option value="Received Mail">Received Mail</option>
 				  				<option value="Utility Bill">Utility Bill</option>
@@ -271,7 +271,7 @@ const MyInnerForm = props => {
 		  		</TabPanel>
 		  		<TabPanel>Visits</TabPanel>
 		  		<TabPanel>Mission</TabPanel>
-			</Tabs>
+			</Tabs>}
 	  </div>
 	  <button>Submit</button>
 	</Form>

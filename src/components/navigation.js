@@ -59,11 +59,12 @@ const AdminDropdown = () => (
 const Navigation = () => (
   <Header as="h2">
   		  <List horizontal="true" >
+			<List.Item><h1>MSM Bridge</h1></List.Item>
   	  		<List.Item><h1><HouseholdDropdown /></h1></List.Item>
-  	  	  <List.Item><h1><DonationDropdown /></h1></List.Item>
-  	  	  <List.Item><h1><VolunteerDropdown /></h1></List.Item>
-  	  	  <List.Item><h1><BartDropdown /></h1></List.Item>
-  	  	  <List.Item><h1><AdminDropdown /></h1></List.Item>
+  	  		<List.Item><h1><DonationDropdown /></h1></List.Item>
+  	  	  	<List.Item><h1><VolunteerDropdown /></h1></List.Item>
+  	  	  	<List.Item><h1><BartDropdown /></h1></List.Item>
+  	  	  	<List.Item><h1><AdminDropdown /></h1></List.Item>
   	  	</List>
 	</Header>
 );

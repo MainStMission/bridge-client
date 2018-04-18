@@ -8,6 +8,18 @@ body {
   background-color: #fff;
 }
 
+.react-tabs__tab {
+  display: inline-block;
+  border: 1px solid transparent;
+  border-bottom: none;
+  bottom: -1px;
+  position: relative;
+  list-style: none;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+
 h1 .list {
   float: left;
   display: inline-block;
