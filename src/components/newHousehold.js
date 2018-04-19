@@ -1,5 +1,4 @@
 /*jshint esversion: 6 */
-// Helper styles for demo
 import '../index.css';
 
 import React from 'react';
@@ -306,7 +305,7 @@ const withSemanticUIFormik = props=> WrappedComponent=>{
 }
 
 
-const Household = withSemanticUIFormik({
+const newHousehold = withSemanticUIFormik({
   mapPropsToValues: () => ({ email: '',agree:false, household_name: '' }),
   validationSchema: Yup.object().shape({
     email: Yup.string()
@@ -322,4 +321,4 @@ const Household = withSemanticUIFormik({
   displayName: 'BasicForm', // helps with React DevTools
 })(MyInnerForm);
 
-export default Household
+export default newHousehold;

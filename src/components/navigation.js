@@ -6,9 +6,9 @@ import { Grid, Image } from 'semantic-ui-react'
 const HouseholdDropdown = () => (
 	<Dropdown text='Household'>
 		<Dropdown.Menu>
-			<Dropdown.Item as={NavLink} to="/household" text='New Household' />
+			<Dropdown.Item as={NavLink} to="/newhousehold" text='New Household' />
 			<Dropdown.Item text='New Visit' />
-			<Dropdown.Item text='Households' />
+			<Dropdown.Item as={NavLink} to="/households" text='Households' />
 			<Dropdown.Item text='Visits' />
 		</Dropdown.Menu>
 	</Dropdown>
