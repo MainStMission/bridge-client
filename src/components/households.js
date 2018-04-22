@@ -10,12 +10,12 @@ import gql from 'graphql-tag'
 
 const GET_HOUSEHOLDS = gql`
   {
-    households {
+    allHouseholds {
       id
       householdName
     }
   }
-`;
+`
 
 
 const households = () => (
@@ -24,7 +24,7 @@ const households = () => (
         if (loading) return <p>Loading...</p>;
         if (error) return <p>Error :(</p>;
   
-        return data.todos.map(({ id, householdName }) => (
+        return data.allHouseholds.map(({ id, householdName }) => (
           <p key={id}>{householdName}</p>
         ));
       }}
